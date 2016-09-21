@@ -1,0 +1,20 @@
+{
+    "name": "trovit/temporary-filesystem",
+    "description": "Provides a basic utilities for temporary persisted files",
+    "require": {
+        "symfony/filesystem": "3.1.4",
+        "monolog/monolog": "1.9.*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Trovit",
+            "email": "trovit@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "Trovit\\TemporaryFilesystem": "src/"
+        }
+    }
+}
