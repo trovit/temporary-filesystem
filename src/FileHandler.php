@@ -1,7 +1,5 @@
 <?php
-
-
-namespace Trovit\TemporaryFilesystem\Model\Utils;
+namespace Trovit\TemporaryFilesystem;
 
 use Symfony\Component\Filesystem\Filesystem;
 
@@ -30,10 +28,9 @@ class FileHandler
      */
     public function __construct(
         $tmpDir
-    )
-    {
+    ) {
         $this->filesystem = new Filesystem();
-        $this->tmpDir = $tmpDir;
+        $this->tmpDir     = $tmpDir;
     }
 
     /**
@@ -41,10 +38,10 @@ class FileHandler
      * @return string file path
      * @throws \Symfony\Component\Filesystem\Exception\IOException
      */
-    public function createTemporalFileFromString($content)
+    public function createTemporaryFileFromString($content)
     {
-        $this->createTemporalDirectory();
-        $filePath = $this->tmpDir.uniqid('input_', true).'.php';
+        $this->createTemporaryDirectory();
+        $filePath = $this->tmpDir . uniqid('input_', true) . '.php';
         $this->filesystem->dumpFile($filePath, $content);
         return $filePath;
     }
@@ -53,7 +50,7 @@ class FileHandler
      * @param string $filePath
      * @throws \Symfony\Component\Filesystem\Exception\IOException
      */
-    public function deleteTemporalFile($filePath)
+    public function deleteTemporaryFile($filePath)
     {
         $this->filesystem->remove($filePath);
     }
@@ -68,10 +65,10 @@ class FileHandler
     }
 
     /**
-     * create a temporal directory if its not already created
+     * create a temporary directory if its not already created
      * @throws \Symfony\Component\Filesystem\Exception\IOException
      */
-    private function createTemporalDirectory()
+    private function createTemporaryDirectory()
     {
         if (!$this->filesystem->exists($tmpDir = $this->tmpDir)) {
             $this->filesystem->mkdir($tmpDir);
