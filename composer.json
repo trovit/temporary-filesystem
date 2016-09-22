@@ -12,8 +12,8 @@
         }
     ],
     "autoload": {
-        "psr-0": {
-            "Trovit\\TemporaryFilesystem": "src/"
+        "psr-4": {
+            "Trovit\\PhpCodeFormatter\\": "src/"
         }
     }
 }
