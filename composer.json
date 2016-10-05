@@ -1,9 +1,6 @@
 {
     "name": "trovit/temporary-filesystem",
     "description": "Provides a basic utilities for temporary persisted files",
-    "require": {
-        "symfony/filesystem": "3.1.*"
-    },
     "license": "MIT",
     "authors": [
         {
@@ -11,9 +8,21 @@
             "email": "github@trovit.com"
         }
     ],
+    "require": {
+        "symfony/filesystem": "^2.3|^3.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "5.2.*",
+        "mikey179/vfsStream": "^1.6"
+    },
     "autoload": {
         "psr-4": {
             "Trovit\\TemporaryFilesystem\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Trovit\\PhpCodeFormatter\\Tests\\Functional\\": "tests/functional"
         }
     }
 }
