@@ -35,13 +35,18 @@ class FileHandler
 
     /**
      * @param string $content
+     * @param string $prefix
+     * @param string $extension
      * @return string file path
-     * @throws \Symfony\Component\Filesystem\Exception\IOException
      */
-    public function createTemporaryFileFromString($content)
+    public function createTemporaryFileFromString(
+        $content,
+        $prefix = 'input_',
+        $extension = 'php'
+    )
     {
         $this->createTemporaryDirectory();
-        $filePath = $this->tmpDir . uniqid('input_', true) . '.php';
+        $filePath = $this->tmpDir . uniqid($prefix, true) . '.'. $extension;
         $this->filesystem->dumpFile($filePath, $content);
         return $filePath;
     }
